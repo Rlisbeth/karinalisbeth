@@ -1,11 +1,15 @@
-contar_digitos <- function(palabra) {
-  digitos <- 0
-
-  for (caracter in palabra) {
-    if (isdigit(caracter)) {
-      digitos <- digitos + 1
-    }
+contar_digitos <- function(frase) {
+  # Manejar caso de cadena vacía o solo espacios
+  if (nchar(trimws(frase)) == 0) {
+    return(0)
   }
-
-  return(digitos)
+  
+  # Dividir la frase en palabras separadas por espacios
+  palabras <- strsplit(frase, "\\s+")[[1]]
+  
+  # Contar las palabras
+  num_palabras <- length(palabras)
+  
+  return(num_palabras)
 }
+
